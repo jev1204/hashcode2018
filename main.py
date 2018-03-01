@@ -55,14 +55,15 @@ def create_vehicles(vehicle_count: int):
 
 
 def add_step_to_vehicle(vehicle: VehicleObj):
-    vehicle.setCurrentRide(current_step, get_shortest_ride())
+    shortes_ride = get_shortest_ride(vehicle)
+    vehicle.setCurrentRide(current_step, shortes_ride)
 
 
 def sort_rides_by_start_steps(rides: list[RideObj]):
     sorted_rides = sorted(rides, key=getattr('start_step'))
 
 
-def stepsToStart(vehicle: vehicleObj, ride: rideObj):
+def stepsToStart(vehicle: vehicleObj, ride: rideObj) -> int:
     row_steps = vehicle.current_ride.start_intersect[0] - ride.start_intersect[0]
     col_steps = vehicle.current_ride.end_intersect[1] - ride.end_intersect[1]
 
@@ -82,6 +83,9 @@ def stepsToStart(vehicle: vehicleObj, ride: rideObj):
 readMatrix("dataSet/b_should_be_easy.in")
 
 
-def get_shortest_ride() -> rideObj:
-    pass
-
+def get_shortest_ride(vehicle: VehicleObj) -> rideObj:
+    rides = dict({})
+    for ride in rideObjects:
+        rides.put(stepsToStart(vehicle, ride), ride)
+    ordered_dic = collections.OrderedDict(sorted(d.items()))
+    return ordered_dic[0]
