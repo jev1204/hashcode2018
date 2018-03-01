@@ -13,9 +13,8 @@ class RideObj:
         self.end_intersect = end_intersect
         self.start_step = start_step
         self.latest_step = latest_step
-        self.finish_step = self.start_step + self.needed_steps
-
         self.needed_steps = self.calcSteps()
+        self.finish_step = self.start_step + self.needed_steps
 
     def calcSteps(self):
         row_steps = self.end_intersect[0] - self.start_intersect[0]

@@ -26,7 +26,7 @@ def readMatrix(fileName):
     for line in rideLines:
         rideObject = rideObj.RideObj(index,[line[0],line[1]], [line[2], line[3]], line[4], line[5])
         rideObjects.append(rideObject)
-        print(rideObject.calcSteps())
+        print(str(rideObject.needed_steps) + " " + str(rideObject.finish_step))
         index = index + 1
 
 
@@ -47,7 +47,7 @@ def stepsToStart(vehicle: vehicleObj, ride: rideObj):
     return row_steps + col_steps
 
 
-readMatrix("dataSet/a_example.in")
+readMatrix("dataSet/b_should_be_easy.in")
 
 
 
