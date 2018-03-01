@@ -19,11 +19,14 @@ def readMatrix(fileName):
     steps = firstLine[5]
 
     rideObjects = []
+    rideLines = input[1:len(input)]
 
-    for line in input:
-        rideObject = rideObj.RideObj([line[0],line[1]], [line[2], line[3]], line[4], line[5])
+    index = 0
+    for line in rideLines:
+        rideObject = rideObj.RideObj(index,[line[0],line[1]], [line[2], line[3]], line[4], line[5])
         rideObjects.append(rideObject)
         print(rideObject.calcSteps())
+        index = index + 1
 
 readMatrix("dataSet/a_example.in")
 
