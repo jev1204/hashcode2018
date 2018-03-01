@@ -3,6 +3,7 @@
 import numpy as np
 import sys
 import rideObj
+import vehicleObj
 
 from rideObj import RideObj
 from vehicleObj import VehicleObj
@@ -32,7 +33,7 @@ def readMatrix(fileName):
     for line in rideLines:
         rideObject = rideObj.RideObj(index,[line[0],line[1]], [line[2], line[3]], line[4], line[5])
         rideObjects.append(rideObject)
-        print(rideObject.calcSteps())
+        print(str(rideObject.needed_steps) + " " + str(rideObject.finish_step))
         index = index + 1
 
 
@@ -59,6 +60,26 @@ def add_step_to_vehicle(vehicle: VehicleObj):
 
 def sort_rides_by_start_steps(rides: list[RideObj]):
     sorted_rides = sorted(rides, key=getattr('startSteps'))
+
+
+def stepsToStart(vehicle: vehicleObj, ride: rideObj):
+    row_steps = vehicle.ride.start_intersect[0] - ride.start_intersect[0]
+    col_steps = vehicle.ride.end_intersect[1] - ride.end_intersect[1]
+
+    if row_steps < 0:
+        row_steps = row_steps * (-1)
+    else:
+        row_steps = row_steps
+
+    if col_steps < 0:
+        col_steps = col_steps * (-1)
+    else:
+        col_steps = col_steps
+
+    return row_steps + col_steps
+
+
+readMatrix("dataSet/b_should_be_easy.in")
 
 
 def get_shortest_ride() -> rideObj:
