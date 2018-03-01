@@ -63,8 +63,8 @@ def sort_rides_by_start_steps(rides: list[RideObj]):
 
 
 def stepsToStart(vehicle: vehicleObj, ride: rideObj):
-    row_steps = vehicle.ride.start_intersect[0] - ride.start_intersect[0]
-    col_steps = vehicle.ride.end_intersect[1] - ride.end_intersect[1]
+    row_steps = vehicle.current_ride.start_intersect[0] - ride.start_intersect[0]
+    col_steps = vehicle.current_ride.end_intersect[1] - ride.end_intersect[1]
 
     if row_steps < 0:
         row_steps = row_steps * (-1)
