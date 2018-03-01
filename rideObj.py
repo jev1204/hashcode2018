@@ -19,4 +19,14 @@ class RideObj:
         rowSteps = self.endIntersect[0] - self.startIntersect[0]
         colSteps = self.endIntersect[1] - self.startIntersect[1]
 
-        return rowSteps * colSteps
+        if rowSteps < 0:
+            rowSteps = rowSteps * (-1)
+        else:
+            rowSteps = rowSteps
+
+        if colSteps < 0:
+            colSteps = colSteps * (-1)
+        else:
+            colSteps = colSteps
+
+        return rowSteps + colSteps
