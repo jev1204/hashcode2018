@@ -4,11 +4,13 @@ class RideObj:
     startStep = 0
     finishStep = 0
     neededSteps = 0
+    id = 0
 
-    def __init__(self, startIntersect, endIntersect, startStep, finishStep):
+    def __init__(self, id, startIntersect, endIntersect, startStep, finishStep):
+        self.id = id
         self.startIntersect = startIntersect
         self.endIntersect = endIntersect
-        self.startIntersect = startStep
+        self.startStep = startStep
         self.finishStep = finishStep
 
         self.neededSteps = self.calcSteps()
