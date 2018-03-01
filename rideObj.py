@@ -1,5 +1,5 @@
 class RideObj:
-    startIntersect = [0,0]
+    startIntersect = [0, 0]
     endIntersect = [0, 0]
     startStep = 0
     finishStep = 0
