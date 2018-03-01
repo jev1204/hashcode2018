@@ -55,11 +55,11 @@ def create_vehicles(vehicle_count: int):
 
 
 def add_step_to_vehicle(vehicle: VehicleObj):
-    vehicle.currentRideObj = get_shortest_ride()
+    vehicle.setCurrentRide(current_step, get_shortest_ride())
 
 
 def sort_rides_by_start_steps(rides: list[RideObj]):
-    sorted_rides = sorted(rides, key=getattr('startSteps'))
+    sorted_rides = sorted(rides, key=getattr('start_step'))
 
 
 def stepsToStart(vehicle: vehicleObj, ride: rideObj):
