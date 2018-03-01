@@ -1,32 +1,34 @@
 class RideObj:
-    startIntersect = [0,0]
-    endIntersect = [0, 0]
-    startStep = 0
-    finishStep = 0
-    neededSteps = 0
+    start_intersect = [0,0]
+    end_intersect = [0, 0]
+    start_step = 0
+    finish_step = 0
+    latest_step = 0
+    needed_steps = 0
     id = 0
 
-    def __init__(self, id, startIntersect, endIntersect, startStep, finishStep):
+    def __init__(self, id, start_intersect, end_intersect, start_step, latest_step):
         self.id = id
-        self.startIntersect = startIntersect
-        self.endIntersect = endIntersect
-        self.startStep = startStep
-        self.finishStep = finishStep
+        self.start_intersect = start_intersect
+        self.end_intersect = end_intersect
+        self.start_step = start_step
+        self.latest_step = latest_step
+        self.finish_step = self.start_step + self.needed_steps
 
-        self.neededSteps = self.calcSteps()
+        self.needed_steps = self.calcSteps()
 
     def calcSteps(self):
-        rowSteps = self.endIntersect[0] - self.startIntersect[0]
-        colSteps = self.endIntersect[1] - self.startIntersect[1]
+        row_steps = self.end_intersect[0] - self.start_intersect[0]
+        col_steps = self.end_intersect[1] - self.start_intersect[1]
 
-        if rowSteps < 0:
-            rowSteps = rowSteps * (-1)
+        if row_steps < 0:
+            row_steps = row_steps * (-1)
         else:
-            rowSteps = rowSteps
+            row_steps = row_steps
 
-        if colSteps < 0:
-            colSteps = colSteps * (-1)
+        if col_steps < 0:
+            col_steps = col_steps * (-1)
         else:
-            colSteps = colSteps
+            col_steps = col_steps
 
-        return rowSteps + colSteps
+        return row_steps + col_steps
