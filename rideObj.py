@@ -8,7 +8,7 @@ class RideObj:
     def __init__(self, startIntersect, endIntersect, startStep, finishStep):
         self.startIntersect = startIntersect
         self.endIntersect = endIntersect
-        self.startIntersect = startIntersect
+        self.startIntersect = startStep
         self.finishStep = finishStep
 
         self.neededSteps = self.calcSteps()
